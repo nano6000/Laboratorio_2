@@ -1,0 +1,40 @@
+     1                                  ;Calcula el valor aproximado de PI
+     2                                  ;Utiliza las series Gregory-Leibniz, para lograrlo.
+     3                                  
+     4                                  ;Objetivo: Calcular PI
+     5                                  ;Entradas: -------
+     6                                  ;Salidas: el valor aproximado de PI, con presicion de decimales
+     7                                  
+     8                                  section .bss
+     9                                  
+    10 00000000 <res 00000002>          denominador resw 1
+    11 00000002 <res 00000002>          numerador resw 1
+    12                                  
+    13                                  section .data
+    14                                  
+    15                                  ;denominador equ 1
+    16                                  ;numerador equ 4
+    17                                  
+    18                                  section .text
+    19                                  	;mov eax,1
+    20                                  	global _start
+    21                                  _start:
+    22 00000000 66C705[00000000]01-     	mov word [denominador],1
+    23 00000008 00                 
+    24 00000009 66C705[02000000]04-     	mov word [numerador],4
+    25 00000011 00                 
+    26 00000012 DF05[00000000]          	fild word [denominador]
+    27 00000018 DE3D[02000000]          	fidivr word [numerador]
+    28                                  	;mov eax,[denominador]
+    29                                  	;add eax,2
+    30                                  
+    31 0000001E 8B1D[00000000]          	mov ebx,[denominador]
+    32                                  pausa:
+    33 00000024 83F80D                  	cmp eax,13
+    34 00000027 75D7                    	jnz _start
+    35                                  
+    36                                  salir:
+    37 00000029 BB00000000              	mov ebx,0
+    38 0000002E B801000000              	mov eax,1
+    39 00000033 CD80                    	int 0x80
+    40                                  	

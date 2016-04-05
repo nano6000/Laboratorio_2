@@ -1,0 +1,75 @@
+Punto de interrupción 1 at 0x8048080
+Starting program: /home/nano/Documentos/Arqui/Lab2/lab2 
+
+Breakpoint 1, 0x08048080 in _start ()
+eax            0x0	0
+ecx            0x0	0
+edx            0x0	0
+ebx            0x0	0
+esp            0xffffd1a0	0xffffd1a0
+ebp            0x0	0x0
+esi            0x0	0
+edi            0x0	0
+eip            0x8048080	0x8048080 <_start>
+eflags         0x202	[ IF ]
+cs             0x23	35
+ss             0x2b	43
+ds             0x2b	43
+es             0x2b	43
+fs             0x0	0
+gs             0x0	0
+  R7: Empty   0x00000000000000000000
+  R6: Empty   0x00000000000000000000
+  R5: Empty   0x00000000000000000000
+  R4: Empty   0x00000000000000000000
+  R3: Empty   0x00000000000000000000
+  R2: Empty   0x00000000000000000000
+  R1: Empty   0x00000000000000000000
+=>R0: Empty   0x00000000000000000000
+
+Status Word:         0x0000                                            
+                       TOP: 0
+Control Word:        0x037f   IM DM ZM OM UM PM
+                       PC: Extended Precision (64-bits)
+                       RC: Round to nearest
+Tag Word:            0xffff
+Instruction Pointer: 0x00:0x00000000
+Operand Pointer:     0x00:0x00000000
+Opcode:              0x0000
+Continuando.
+
+Breakpoint 1, 0x08048080 in _start ()
+eax            0x0	0
+ecx            0x0	0
+edx            0x80490ae	134516910
+ebx            0x0	0
+esp            0xffffd1a0	0xffffd1a0
+ebp            0x0	0x0
+esi            0x0	0
+edi            0x0	0
+eip            0x8048080	0x8048080 <_start>
+eflags         0x202	[ IF ]
+cs             0x23	35
+ss             0x2b	43
+ds             0x2b	43
+es             0x2b	43
+fs             0x0	0
+gs             0x0	0
+=>R7: Valid   0x3ff6ffc00ffc00ffc010 +0,003902439024390243902   
+  R6: Empty   0x00000000000000000000
+  R5: Empty   0x00000000000000000000
+  R4: Empty   0x00000000000000000000
+  R3: Empty   0x00000000000000000000
+  R2: Empty   0x00000000000000000000
+  R1: Empty   0x00000000000000000000
+  R0: Empty   0x00000000000000000000
+
+Status Word:         0x3a20                  PE                C1      
+                       TOP: 7
+Control Word:        0x037f   IM DM ZM OM UM PM
+                       PC: Extended Precision (64-bits)
+                       RC: Round to nearest
+Tag Word:            0x3fff
+Instruction Pointer: 0x00:0x08048086
+Operand Pointer:     0x00:0x080490ac
+Opcode:              0x0000
