@@ -23,13 +23,19 @@ _start:
 	mov word [numerador],4
 	fild word [denominador]
 	fidivr word [numerador]
-	;mov eax,[denominador]
-	;add eax,2
-
-	mov ebx,[denominador]
-pausa:
-	cmp eax,13
-	jnz _start
+incremento:
+	mov ebx,denominador	;copia direccion de denominador en ebx
+	add word [ebx],2	;suma 2 al valor de denominador
+actualizar:	
+	fild word [denominador] ;carga el nuevo denominador
+	fidivr word [numerador]	;divide el numerador entre el 
+							;denominador y lo guarda en el tope actual 
+							;de la pila
+sumar:
+	faddp ST1,ST0
+	;fincstp
+	
+	jmp incremento
 
 salir:
 	mov ebx,0

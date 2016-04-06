@@ -25,16 +25,22 @@
     25 00000011 00                 
     26 00000012 DF05[00000000]          	fild word [denominador]
     27 00000018 DE3D[02000000]          	fidivr word [numerador]
-    28                                  	;mov eax,[denominador]
-    29                                  	;add eax,2
-    30                                  
-    31 0000001E 8B1D[00000000]          	mov ebx,[denominador]
-    32                                  pausa:
-    33 00000024 83F80D                  	cmp eax,13
-    34 00000027 75D7                    	jnz _start
-    35                                  
-    36                                  salir:
-    37 00000029 BB00000000              	mov ebx,0
-    38 0000002E B801000000              	mov eax,1
-    39 00000033 CD80                    	int 0x80
-    40                                  	
+    28                                  incremento:
+    29 0000001E BB[00000000]            	mov ebx,denominador	;copia direccion de denominador en ebx
+    30 00000023 66830302                	add word [ebx],2	;suma 2 al valor de denominador
+    31                                  actualizar:	
+    32 00000027 DF05[00000000]          	fild word [denominador] ;carga el nuevo denominador
+    33 0000002D DE3D[02000000]          	fidivr word [numerador]	;divide el numerador entre el 
+    34                                  							;denominador y lo guarda en el tope actual 
+    35                                  							;de la pila
+    36                                  sumar:
+    37 00000033 DEC1                    	faddp ST1,ST0
+    38                                  	;fincstp
+    39                                  	
+    40 00000035 EBE7                    	jmp incremento
+    41                                  
+    42                                  salir:
+    43 00000037 BB00000000              	mov ebx,0
+    44 0000003C B801000000              	mov eax,1
+    45 00000041 CD80                    	int 0x80
+    46                                  	
