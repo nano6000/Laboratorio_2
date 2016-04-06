@@ -73,7 +73,8 @@ Tag Word:            0x3fff
 Instruction Pointer: 0x00:0x08048086
 Operand Pointer:     0x00:0x080490ac
 Opcode:              0x0000
-
+Nota: punto de rotura 1 también fijar en pc 0x80480e2.
+Punto de interrupción 2 at 0x80480e2
 Punto de interrupción 1 at 0x80480e2
 Starting program: /home/nano/Documentos/Arqui/Laboratorio_2/Lab2/lab2 
 
