@@ -112,3 +112,42 @@ Tag Word:            0x0fff
 Instruction Pointer: 0x00:0x080480dc
 Operand Pointer:     0x00:0x080490f4
 Opcode:              0x0000
+Nota: punto de rotura 1 también fijar en pc 0x8048106.
+Punto de interrupción 2 at 0x8048106
+Starting program: /home/nano/Documentos/Arqui/Laboratorio_2/Lab2/lab2 
+
+Breakpoint 1, 0x08048106 in pausa ()
+eax            0xfffffff2	-14
+ecx            0x40490fdb	1078530011
+edx            0x2	2
+ebx            0x1	1
+esp            0xffffd164	0xffffd164
+ebp            0x0	0x0
+esi            0x0	0
+edi            0x0	0
+eip            0x8048106	0x8048106 <pausa>
+eflags         0x246	[ PF ZF IF ]
+cs             0x23	35
+ss             0x2b	43
+ds             0x2b	43
+es             0x2b	43
+fs             0x0	0
+gs             0x0	0
+=>R7: Valid   0x4000c90fdaacde3040a1 +3,141592663589793978      
+  R6: Empty   0x3fe5abcc77031b088446
+  R5: Empty   0x00000000000000000000
+  R4: Empty   0x00000000000000000000
+  R3: Empty   0x00000000000000000000
+  R2: Empty   0x00000000000000000000
+  R1: Empty   0x00000000000000000000
+  R0: Empty   0x00000000000000000000
+
+Status Word:         0x3a20                  PE                C1      
+                       TOP: 7
+Control Word:        0x037f   IM DM ZM OM UM PM
+                       PC: Extended Precision (64-bits)
+                       RC: Round to nearest
+Tag Word:            0x3fff
+Instruction Pointer: 0x00:0x080480dd
+Operand Pointer:     0x00:0x08049132
+Opcode:              0x0000

@@ -4,15 +4,20 @@
 ;Objetivo: Calcular PI
 ;Entradas: -------
 ;Salidas: el valor aproximado de PI, con presicion de decimales
-bits 32
+;%include "dumpRegs.asm"
+
+extern printf
+
 section .bss
 
 denominador resq 1
 numerador resw 1
-PI resq 1
+PI: resb 8
 
 section .data
 
+;PI: dt 0x00
+;len: db $-PI
 section .text
 	global _start
 _start:
@@ -47,7 +52,7 @@ resta:
 									;almacena en el valor anterior al tope
 									;y hace un pop a la pila
 	xor eax,0xFF				;Cambia el valor del eax a 0xFF
-	jmp comprobar
+	jmp continuar
 suma:
 	faddp ST1,ST0				;suma el valor del tope de la pila y lo 
 									;almacena en el valor anterior al tope
@@ -55,27 +60,31 @@ suma:
 	xor eax,0xFF				;Cambia el valor del eax a 0x00
 	inc ecx						;Incrementa el contador
 	
-comprobar:
-	;cmp edx,16375
-	;je aumentar_tope
 continuar:
-	cmp ecx,500000000
+	cmp ecx,50000000
 	;cmp ecx,16384
-	je calcular
+	je imprimir
 	jmp incremento
 
-aumentar_tope:
-	fincstp
-	jmp continuar
-	
-calcular:
-	;faddp ST1,ST0
-	;faddp ST1,ST0
-	;faddp ST1,ST0
-	;fidiv word [numerador]
-	fild qword [denominador]
 imprimir:
-	fst qword [PI]
+	push PI
+	fst dword [PI]
+	push dword [PI+4]
+	push dword [PI]
+	
+	mov edx,2
+	mov ecx,[PI]
+	
+	mov ebx,1
+	mov eax,4
+	int 0x80
+	
+pausa:
+	mov edx,16
+	mov ecx,10
+	mov ebx,1
+	mov eax,4
+	int 0x80
 
 salir:
 	mov ebx,0
